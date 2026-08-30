@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "fraud_checks")
-public class FraudCheckEntty {
+public class FraudCheckEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,7 +31,7 @@ public class FraudCheckEntty {
 
     private String reason;
 
-    public FraudCheckEntty() {}
+    public FraudCheckEntity() {}
 
     public Long getFraudCheckId() {
         return fraudCheckId;

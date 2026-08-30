@@ -1,2 +1,7 @@
-package org.fraudservice.entity;public class RiskLevel {
+package org.fraudservice.entity;
+
+public enum RiskLevel {
+    LOW,
+    MEDIUM,
+    HIGH
 }

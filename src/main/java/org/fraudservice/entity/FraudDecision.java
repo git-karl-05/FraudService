@@ -1,2 +1,6 @@
-package org.fraudservice.entity;public class FraudDecision {
+package org.fraudservice.entity;
+
+public enum FraudDecision {
+    APPROVED,
+    REJECTED
 }

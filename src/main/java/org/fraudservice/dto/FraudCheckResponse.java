@@ -1,7 +1,9 @@
 package org.fraudservice.dto;
 
+import org.fraudservice.entity.FraudCheckEntity;
 import org.fraudservice.entity.FraudDecision;
 import org.fraudservice.entity.RiskLevel;
+
 
 public class FraudCheckResponse {
 
@@ -17,6 +19,13 @@ public class FraudCheckResponse {
         this.decision = decision;
         this.riskLevel = riskLevel;
         this.reason = reason;
+    }
+
+    public FraudCheckResponse(FraudCheckEntity entity) {
+        this.fraudCheckId = entity.getFraudCheckId();
+        this.decision = entity.getDecision();
+        this.riskLevel = entity.getRiskLevel();
+        this.reason = entity.getReason();
     }
 
     public Long getFraudCheckId() {
