@@ -1,20 +1,26 @@
 package org.fraudservice.dto;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import org.fraudservice.entity.FraudCheckEntity;
 import org.fraudservice.entity.FraudDecision;
-import org.fraudservice.entity.RiskLevel;
+import org.fraudservice.entity.FraudRiskLevel;
 
-
+@JsonPropertyOrder({
+        "fraudCheckId",
+        "riskLevel",
+        "decision",
+        "reason"
+})
 public class FraudCheckResponse {
 
     private Long fraudCheckId;
     private FraudDecision decision;
-    private RiskLevel riskLevel;
+    private FraudRiskLevel riskLevel;
     private String reason;
 
     public FraudCheckResponse(){}
 
-    public FraudCheckResponse(Long fraudCheckId, FraudDecision decision, RiskLevel riskLevel, String reason) {
+    public FraudCheckResponse(Long fraudCheckId, FraudDecision decision, FraudRiskLevel riskLevel, String reason) {
         this.fraudCheckId = fraudCheckId;
         this.decision = decision;
         this.riskLevel = riskLevel;
@@ -44,11 +50,11 @@ public class FraudCheckResponse {
         this.decision = decision;
     }
 
-    public RiskLevel getRiskLevel() {
+    public FraudRiskLevel getRiskLevel() {
         return riskLevel;
     }
 
-    public void setRiskLevel(RiskLevel riskLevel) {
+    public void setRiskLevel(FraudRiskLevel riskLevel) {
         this.riskLevel = riskLevel;
     }
 

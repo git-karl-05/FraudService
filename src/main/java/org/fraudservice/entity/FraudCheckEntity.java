@@ -27,7 +27,7 @@ public class FraudCheckEntity {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private RiskLevel riskLevel;
+    private FraudRiskLevel riskLevel;
 
     private String reason;
 
@@ -73,11 +73,11 @@ public class FraudCheckEntity {
         this.decision = decision;
     }
 
-    public RiskLevel getRiskLevel() {
+    public FraudRiskLevel getRiskLevel() {
         return riskLevel;
     }
 
-    public void setRiskLevel(RiskLevel riskLevel) {
+    public void setRiskLevel(FraudRiskLevel riskLevel) {
         this.riskLevel = riskLevel;
     }
 

@@ -5,5 +5,5 @@ import org.fraudservice.dto.FraudCheckResponse;
 
 public interface FraudService {
 
-    public FraudCheckResponse evaluateTransfer(FraudCheckRequest request);
+    public FraudCheckResponse evaluateTransfer(FraudCheckRequest request) throws Exception;
 }

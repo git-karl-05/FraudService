@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/evaluateTransfer")
+@RequestMapping("api/fraud")
 public class FraudCheckController {
 
     private final FraudService fraudService;
@@ -21,7 +21,7 @@ public class FraudCheckController {
     }
 
     @PostMapping("/check")
-    public ResponseEntity<FraudCheckResponse> evaluateTransfer(@RequestBody FraudCheckRequest request) {
+    public ResponseEntity<FraudCheckResponse> evaluateTransfer(@RequestBody FraudCheckRequest request) throws Exception {
         return ResponseEntity.ok(fraudService.evaluateTransfer(request));
     }
 }

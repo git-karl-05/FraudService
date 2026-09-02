@@ -1,0 +1,8 @@
+POST http://localhost:8083/api/fraud/check
+Content-Type: application/json
+
+{
+  "fromAccountId" : 1,
+  "toAccountId" : 2,
+  "amount" : 500.00
+}

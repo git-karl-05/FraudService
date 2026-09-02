@@ -1,6 +1,6 @@
 package org.fraudservice.entity;
 
-public enum RiskLevel {
+public enum FraudRiskLevel {
     LOW,
     MEDIUM,
     HIGH

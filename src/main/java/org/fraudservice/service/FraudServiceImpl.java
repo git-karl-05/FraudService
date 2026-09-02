@@ -1,12 +1,11 @@
 package org.fraudservice.service;
 
 
-import jakarta.persistence.*;
 import org.fraudservice.dto.FraudCheckRequest;
 import org.fraudservice.dto.FraudCheckResponse;
 import org.fraudservice.entity.FraudCheckEntity;
 import org.fraudservice.entity.FraudDecision;
-import org.fraudservice.entity.RiskLevel;
+import org.fraudservice.entity.FraudRiskLevel;
 import org.fraudservice.exception.InvalidFraudCheckRequestException;
 import org.fraudservice.repository.FraudCheckRepository;
 import org.slf4j.Logger;
@@ -14,7 +13,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.Objects;
 
 @Service
 public class FraudServiceImpl implements FraudService{
@@ -33,7 +31,8 @@ public class FraudServiceImpl implements FraudService{
     }
 
     @Override
-    public FraudCheckResponse evaluateTransfer(FraudCheckRequest request) {
+    public FraudCheckResponse evaluateTransfer(FraudCheckRequest request) throws Exception {
+
 
         validateRequest(request);
 
@@ -45,19 +44,19 @@ public class FraudServiceImpl implements FraudService{
         if (request.getAmount().compareTo(HIGH_RISK_THRESHOLD) > 0) {
 
             fraudCheck.setDecision(FraudDecision.REJECTED);
-            fraudCheck.setRiskLevel(RiskLevel.HIGH);
+            fraudCheck.setRiskLevel(FraudRiskLevel.HIGH);
             fraudCheck.setReason("");
 
         } else if (request.getAmount().compareTo(MEDIUM_RISK_THRESHOLD) > 0) {
 
             fraudCheck.setDecision(FraudDecision.APPROVED);
-            fraudCheck.setRiskLevel(RiskLevel.MEDIUM);
+            fraudCheck.setRiskLevel(FraudRiskLevel.MEDIUM);
             fraudCheck.setReason("Transfer requires elevated monitoring");
 
         } else {
 
             fraudCheck.setDecision(FraudDecision.APPROVED);
-            fraudCheck.setRiskLevel(RiskLevel.LOW);
+            fraudCheck.setRiskLevel(FraudRiskLevel.LOW);
             fraudCheck.setReason("Transfer passed fraud screening");
 
         }
